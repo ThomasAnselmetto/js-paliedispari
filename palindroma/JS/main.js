@@ -1,35 +1,28 @@
 // Chiedere all'utente di inserire una parola
 // Creare una funzione per capire se la parola inserita è palindroma
 
-// chiedi all'utente di inserire una parola
-
-const userWord = prompt("inserisci una parola per vedere se e' palindroma!");
-
-parolaInvertita = invertiLaParola(userWord);
-
-// se la parola data dall'user sara' uguale alla parola invertita sara' palindroma in caso contrario non lo sara'
-
-if (userWord == parolaInvertita) {
-    console.log("la parola " + userWord + " è palindroma!")
-} else {
-    console.log("la parola " + userWord + " non è palindroma!")
-}
 
 
-// crea una funzione che inverta la parola
+//chiedere parola all'utente una parola da valutare come palindroma
+const stringa = prompt("Inserisci una parola per vedere se e' palindroma");
 
-function invertiLaParola(string) {
-    parolaInvertita = userWord;
+// call the function
+const evocoLaFunzione = checkPalindrome(stringa);
 
-    let i = string.length - 1;
+console.log(evocoLaFunzione);
 
-    // finche la variabile prendi le lettere della parola partendo dalla fine e decrementale
+function checkPalindrome(stringa) {
 
-    while (i >= 0) {
-        parolaInvertita += parolaInvertita[i];
-        i--;
-        console.log(parolaInvertita);
+    // cerco la lunghezza della stringa
+    const lunghezzaParola = stringa.length;
+
+    // loop through half of the stringa
+    for (let i = 0; i < lunghezzaParola / 2; i++) {
+
+        // check if first and last stringa are same
+        if (stringa[i] !== stringa[lunghezzaParola - 1 - i]) {
+            return "La parola non e' palindroma";
+        }
     }
-
-    return parolaInvertita;
+    return "la parola e'palindroma";
 }
