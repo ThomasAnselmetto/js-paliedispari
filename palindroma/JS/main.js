@@ -16,13 +16,14 @@ function checkPalindrome(stringa) {
     // cerco la lunghezza della stringa
     const lunghezzaParola = stringa.length;
 
-    // loop through half of the stringa
     for (let i = 0; i < lunghezzaParola / 2; i++) {
 
-        // check if first and last stringa are same
+        // stringa anilazzata nelle sue due metà
         if (stringa[i] !== stringa[lunghezzaParola - 1 - i]) {
             return "La parola non e' palindroma";
         }
     }
     return "la parola e'palindroma";
 }
+
+
